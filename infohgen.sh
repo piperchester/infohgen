@@ -4,18 +4,17 @@
 
 ##### Constants
 
-TITLE="System Information for $HOSTNAME"
+TITLE="$HOSTNAME"
 RIGHT_NOW=$(date +"%x %r %Z")
-TIME_STAMP="Updated on $RIGHT_NOW by $USER"
+TIME_STAMP="Updated on $RIGHT_NOW by " 
 
 ##### Functions
 
 function system_info
 {
     echo "<h2>System release info</h2>"
-    echo "<p>Function not yet implemented</p>"
-
-}   # end of system_info
+   echo "<p>Function not yet implemented</p>"
+}   
 
 
 function show_uptime
@@ -24,8 +23,7 @@ function show_uptime
     echo "<pre>"
     uptime
     echo "</pre>"
-
-}   # end of show_uptime
+}   
 
 
 function drive_space
@@ -34,8 +32,7 @@ function drive_space
     echo "<pre>"
     df
     echo "</pre>"
-
-}   # end of drive_space
+}   
 
 
 function home_space
@@ -49,9 +46,7 @@ function home_space
         du -s /home/* | sort -nr
         echo "</pre>"
     fi
-
-}   # end of home_space
-
+}   
 
 
 ##### Main
@@ -61,9 +56,9 @@ cat <<- _EOF_
   <head>
       <title>$TITLE</title>
   </head>
-  <body>
-      <h1>$TITLE</h1>
-      <p>$TIME_STAMP</p>
+  <body style=font-family:Helvetica;background-color:black;color:white>
+      <h1 style=text-align:center;width:100%>$TITLE</h1>
+      <p style=text-align:center;width:100%>$TIME_STAMP<b style=color:yellow>$USER</b></p>
       $(system_info)
       $(show_uptime)
       $(drive_space)

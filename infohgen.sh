@@ -12,14 +12,14 @@ TIME_STAMP="Updated on $RIGHT_NOW by "
 
 function system_info
 {
-    echo "<h2>System release info</h2>"
+   echo "<h2>Release Info</h2>"
    echo "<p>Function not yet implemented</p>"
 }   
 
 
 function show_uptime
 {
-    echo "<h2>System uptime</h2>"
+    echo "<h2>Uptime</h2>"
     echo "<pre>"
     uptime
     echo "</pre>"
@@ -28,7 +28,7 @@ function show_uptime
 
 function drive_space
 {
-    echo "<h2>Filesystem space</h2>"
+    echo "<h2>Filesystem Space</h2>"
     echo "<pre>"
     df
     echo "</pre>"
@@ -38,9 +38,8 @@ function drive_space
 function home_space
 {
     # Only the superuser can get this information
-
     if [ "$(id -u)" = "0" ]; then
-        echo "<h2>Home directory space by user</h2>"
+        echo "<h2>Home Directory Space by User</h2>"
         echo "<pre>"
         echo "Bytes Directory"
         du -s /home/* | sort -nr

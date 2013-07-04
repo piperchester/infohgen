@@ -18,7 +18,6 @@ function system_info
 _EOF_
 }
 
-
 function show_uptime
 {
   cat <<- _EOF_
@@ -29,7 +28,6 @@ function show_uptime
 _EOF_
 }
 
-
 function drive_space
 {
   cat <<- _EOF_
@@ -39,7 +37,6 @@ function drive_space
     </pre>
 _EOF_
 }
-
 
 function home_space
 {
@@ -54,7 +51,6 @@ function home_space
 _EOF_
   fi
 }
-
 
 ##### Main
 

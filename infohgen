@@ -12,26 +12,32 @@ TIME_STAMP="Updated on $RIGHT_NOW by "
 
 function system_info
 {
-  echo "<h2>Release Info</h2>"
-  echo "<p>Function not yet implemented</p>"
+  cat <<- _EOF_
+    <h2>Release Info</h2>
+    <p>Function not yet implemented</p>
+_EOF_
 }
 
 
 function show_uptime
 {
-  echo "<h2>Uptime</h2>"
-  echo "<pre>"
-  uptime
-  echo "</pre>"
+  cat <<- _EOF_
+    <h2>Uptime</h2>
+    <pre>
+    $(uptime)
+    </pre>
+_EOF_
 }
 
 
 function drive_space
 {
-  echo "<h2>Filesystem Space</h2>"
-  echo "<pre>"
-  df
-  echo "</pre>"
+  cat <<- _EOF_
+    <h2>Filesystem Space</h2>
+    <pre>
+    $(df)
+    </pre>
+_EOF_
 }
 
 
@@ -39,11 +45,13 @@ function home_space
 {
   # Only the superuser can get this information
   if [ "$(id -u)" = "0" ]; then
-    echo "<h2>Home Directory Space by User</h2>"
-    echo "<pre>"
-    echo "Bytes Directory"
-    du -s /home/* | sort -nr
-    echo "</pre>"
+    cat <<- _EOF_
+      <h2>Home Directory Space by User</h2>
+      <pre>
+      Bytes Directory
+      $(du -s /home/* | sort -nr)
+      </pre>
+_EOF_
   fi
 }
 
